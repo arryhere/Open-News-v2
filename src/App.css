@@ -1,0 +1,13 @@
+.navbar{
+  box-shadow: 0px 0px 1px rgb(0, 0, 0);
+}
+
+@media (max-width:576px)  {
+  #headline-heading{
+    font-size: 1.5rem;
+  }
+}
+
+#countryDropDownMenu::before{
+  content: none !important ;
+}
