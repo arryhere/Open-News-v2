@@ -38,12 +38,16 @@ export default class App extends Component {
     }
   }
   
+  changeCountry = (country) => {
+    this.setState({ country: country })
+  }
+
   render() {
     window.addEventListener('scroll', this.toggleScrollBtns);
 
     return (
       <Router >
-        <NavBar />
+        <NavBar changeCountry={this.changeCountry} />
         <Routes>
           <Route exact path="/" element={<News key="home" title="Home" pageSize={20} country={this.state.country}
             category={"general"} />} />
@@ -59,7 +63,7 @@ export default class App extends Component {
             category={"sports"} />} />
           <Route exact path="/technology" element={<News key="technology" title="Technology" pageSize={20} country={this.state.country}
             category={"technology"} />} />
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/about" element={<About key="about" />} />
         </Routes>
         <ScrollTopBtn showScrollTopBtn={this.state.showScrollTopBtn} />
         <ScrollBottomBtn showScrollToBottomBtn={this.state.showScrollBottomBtn} />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default class NavBar extends Component {
 
   getCountry = (e) => {
-    console.log(e.target.value)
+    this.props.changeCountry(e.target.value)
   }
   render() {
     return (

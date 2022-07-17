@@ -4,7 +4,6 @@ import NewsItem from './NewsItem'
 import Spinner from './Spinner'
 
 export default class News extends Component {
-
   constructor() {
     super()
     // console.log('constructor');
@@ -14,9 +13,11 @@ export default class News extends Component {
       loading: false,
       page: 1,
       totalResults: 0,
-      apiKey: 'e104cd12f0fd47f7a2ac7d932682002a'
+      apiKey: this.apiKeyArr[0],
     }
   }
+  
+  apiKeyArr = ['f46ca323c38f4c1fbe8b5f46fe3de358', 'e104cd12f0fd47f7a2ac7d932682002a']
 
   // articles = [
   //   {
@@ -108,7 +109,7 @@ export default class News extends Component {
           {!this.state.loading && this.state.articles.map((e) => {
             return <NewsItem key={e.url} title={e.title} description={e.description !== null ? e.description.slice(0, 99) + "....." : ''}
               imgUrl={e.urlToImage !== null ? e.urlToImage : 'https://www.rbs.ca/wp-content/themes/rbs/images/news-placeholder.png'}
-              newsUrl={e.url} date={new Date(e.publishedAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short', hour12: false })} source={e.source.name}/>
+              newsUrl={e.url} date={new Date(e.publishedAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short', hour12: false })} source={e.source.name} />
           })}
         </div>
         <hr />
