@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class ScrollTopBtn extends Component {
   style = {
-    bottom: '130px',
+    bottom: '47px',
     left: '10px'
   }
 
@@ -13,7 +13,7 @@ export default class ScrollTopBtn extends Component {
     
     return (
       this.props.showScrollTopBtn && <div>
-        <button type="button" className='btn btn-sm btn-dark position-fixed' style={this.style} 
+        <button type="button" className='scroll-btn btn btn-sm btn-dark position-fixed' style={this.style} 
           onClick={this.scrollTop}><i className="bi bi-chevron-up"></i>
         </button>
       </div>

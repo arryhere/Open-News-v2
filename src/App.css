@@ -11,3 +11,7 @@
 #countryDropDownMenu::before{
   content: none !important ;
 }
+
+.scroll-btn{
+  border-radius: 100px;
+}

@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 export default class NavBar extends Component {
 
   getCountry = (e) => {
-    this.props.changeCountry(e.target.value)
+    this.props.setCountry(e.target.value)
   }
   render() {
     return (
       <>
-        <nav className="navbar navbar-expand-lg bg-light sticky-top">
+        <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
             <img src="/logo192.png" alt="Open-News-logo" height="40" />
             <Link className="navbar-brand fw-bold fs-4 ms-2 me-4" to="/">Open News</Link>
@@ -43,10 +43,18 @@ export default class NavBar extends Component {
               <div>
                 <ul className="navbar-nav me-auto mb-lg-0">
                   <li className="nav-item my-auto">
-                    <select className="form-select form-select-sm" defaultValue={'in'} onChange={this.getCountry}>
+                    <select className="form-select form-select-sm" defaultValue={this.props.country} onChange={this.getCountry}>
                       <option value="in">India</option>
-                      <option value="us">USA</option>
                       <option value="jp">Japan</option>
+                      <option value="us">United States</option>
+                      <option value="ca">Canada</option>
+                      <option value="gb">United Kingdom</option>
+                      <option value="de">Germany</option>
+                      <option value="au">Australia</option>
+                      <option value="ch">Switzerland</option>
+                      <option value="nz">New Zealand</option>
+                      <option value="se">Sweden</option>
+                      <option value="nl">Netherlands</option>
                     </select>
                   </li>
                   <li className="nav-item">

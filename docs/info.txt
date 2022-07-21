@@ -1,0 +1,2 @@
+• React uses JavaScript at its core, therefore you can use vanilla JavaScript whenever and however you want
+• 
