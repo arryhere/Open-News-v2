@@ -49,7 +49,7 @@ export default function NavBar(props) {
             <div>
               <ul className="navbar-nav me-auto mb-lg-0">
                 <li className="nav-item my-auto me-lg-2">
-                  <select className={`form-select form-select-sm bg-${props.theme} text-${altTheme}`} 
+                  <select className={`form-select form-select-sm bg-${props.theme} text-${altTheme}`}
                     defaultValue={props.country} onChange={getCountry}>
                     <option value="in">India</option>
                     <option value="jp">Japan</option>
@@ -75,13 +75,13 @@ export default function NavBar(props) {
                 </li>
                 <li className="nav-item d-flex justify-content-center align-items-center me-auto">
                   <Link className="nav-link" to="/about">
-                    <button type='button' className={`navbar-btn btn btn-sm btn-${altTheme}`}>
+                    <button type='button' className={`navbar-btn btn btn-sm btn-${props.theme === 'light' ? 'dark' : 'success'}`}>
                       <i className="bi bi-question-lg"></i>
                     </button>
                   </Link>
-                  <button type='button' className={`navbar-btn btn btn-sm btn-${altTheme} ms-1`} onClick={setTheme}>
-                    {props.theme === 'light' 
-                      ? <i className="bi bi-moon-fill"></i> 
+                  <button type='button' className={`navbar-btn btn btn-sm btn-${props.theme === 'light' ? 'dark' : 'success'} ms-1`} onClick={setTheme}>
+                    {props.theme === 'light'
+                      ? <i className="bi bi-moon-fill"></i>
                       : <i className="bi bi-sun-fill"></i>}
                   </button>
                 </li>
