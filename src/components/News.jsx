@@ -11,7 +11,7 @@ export default function News(props) {
   const [pageSize, setpageSize] = useState(20)
   const [totalResults, settotalResults] = useState(0)
   const [loading, setloading] = useState(true)
-  const [apiKey, setapiKey] = useState(process.env.REACT_APP_NEWS_AP1_1)
+  const [apiKey, setapiKey] = useState(process.env.REACT_APP_NEWS_AP1_4)
 
   const updateNews = async () => {
     props.setProgress(0)
@@ -45,8 +45,10 @@ export default function News(props) {
     console.log(page, articles.length, totalResults);    // clog running first then dom is populating (asynchronous behaviour)
   }
 
+  const altTheme = props.theme === 'light' ? 'dark' : 'light'
+
   return (
-    <div className='container my-3 p-3 border border-muted rounded-3'>
+    <div className={`news-container container my-3 p-3 border border-${props.theme === 'light' ? 'muted' : 'dark'}  rounded-3 bg-${props.theme} text-${altTheme}`}>
       <div className='d-flex flex-column flex-lg-row justify-content-center align-items-center justify-content-lg-between'>
         <h1 className='mb-3 fw-bold text-center text-lg-start' id='headline-heading'>{`Top Headlines - ${props.title}`}</h1>
       </div>
@@ -58,9 +60,14 @@ export default function News(props) {
       >
         <div className='d-flex justify-content-evenly align-items-start flex-wrap'>
           {articles.map((e) => {
-            return <NewsItem key={e.url} title={e.title} description={e.description !== null ? e.description.slice(0, 99) + "....." : ''}
+            return <NewsItem 
+              key={e.url} 
+              title={e.title} 
+              description={e.description !== null ? e.description.slice(0, 99) + "....." : ''}
               imgUrl={e.urlToImage !== null ? e.urlToImage : 'https://www.rbs.ca/wp-content/themes/rbs/images/news-placeholder.png'}
-              newsUrl={e.url} date={new Date(e.publishedAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short', hour12: false })} source={e.source.name} />
+              newsUrl={e.url} date={new Date(e.publishedAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short', hour12: false })} 
+              source={e.source.name}
+              theme={props.theme} />
           })}
         </div>
       </InfiniteScroll>

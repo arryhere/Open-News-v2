@@ -7,9 +7,15 @@ export default function NavBar(props) {
     props.setCountry(e.target.value)
   }
 
+  const setTheme = () => {
+    props.setTheme()
+  }
+
+  const altTheme = props.theme === 'light' ? 'dark' : 'light'
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className={`navbar navbar-expand-lg navbar-${props.theme} bg-${props.theme}`}>
         <div className="container-fluid">
           <img src="/logo192.png" alt="Open-News-logo" height="40" />
           <Link className="navbar-brand fw-bold fs-4 ms-2 me-4" to="/">Open News</Link>
@@ -42,27 +48,42 @@ export default function NavBar(props) {
             </ul>
             <div>
               <ul className="navbar-nav me-auto mb-lg-0">
-                <li className="nav-item my-auto">
-                  <select className="form-select form-select-sm" defaultValue={props.country} onChange={getCountry}>
+                <li className="nav-item my-auto me-lg-2">
+                  <select className={`form-select form-select-sm bg-${props.theme} text-${altTheme}`} 
+                    defaultValue={props.country} onChange={getCountry}>
                     <option value="in">India</option>
                     <option value="jp">Japan</option>
                     <option value="us">United States</option>
-                    <option value="ca">Canada</option>
+                    <option value="kr">South Korea</option>
+                    <option value="cn">China</option>
                     <option value="gb">United Kingdom</option>
-                    <option value="de">Germany</option>
+                    <option value="ae">United Arab Emirates</option>
+                    <option value="ca">Canada</option>
                     <option value="au">Australia</option>
-                    <option value="ch">Switzerland</option>
+                    <option value="ru">Russia</option>
+                    <option value="ua">Ukraine</option>
                     <option value="nz">New Zealand</option>
-                    <option value="se">Sweden</option>
+                    <option value="sg">Singapore</option>
+                    <option value="de">Germany</option>
+                    <option value="ch">Switzerland</option>
+                    <option value="it">Italy</option>
+                    <option value="be">Belgium</option>
+                    <option value="fr">France</option>
                     <option value="nl">Netherlands</option>
+                    <option value="se">Sweden</option>
                   </select>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item d-flex justify-content-center align-items-center me-auto">
                   <Link className="nav-link" to="/about">
-                    <button type='button' className='btn btn-sm btn-dark'>
+                    <button type='button' className={`navbar-btn btn btn-sm btn-${altTheme}`}>
                       <i className="bi bi-question-lg"></i>
                     </button>
                   </Link>
+                  <button type='button' className={`navbar-btn btn btn-sm btn-${altTheme} ms-1`} onClick={setTheme}>
+                    {props.theme === 'light' 
+                      ? <i className="bi bi-moon-fill"></i> 
+                      : <i className="bi bi-sun-fill"></i>}
+                  </button>
                 </li>
               </ul>
             </div>

@@ -13,7 +13,7 @@ export default function ScrollTopBtn(props) {
 
   return (
     props.showScrollTopBtn && <div>
-      <button type="button" className='scroll-btn btn btn-sm btn-dark position-fixed' style={style}
+      <button type="button" className={`scroll-btn btn btn-sm btn-dark position-fixed border-${props.theme === 'light' ? 'dark' : 'success'}`} style={style}
         onClick={scrollTop}><i className="bi bi-chevron-up"></i>
       </button>
     </div>

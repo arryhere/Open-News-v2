@@ -15,6 +15,7 @@ export default function App(props) {
   const [showScrollBottomBtn, setshowScrollBottomBtn] = useState(null)
   const [country, setcountry] = useState(localStorage.getItem('country') === null ? 'us' : localStorage.getItem('country'))
   const [progress, setprogress] = useState(0)
+  const [theme, settheme] = useState(localStorage.getItem('theme') === null ? 'light' : localStorage.getItem('theme'))
 
   const toggleScrollBtns = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -40,38 +41,50 @@ export default function App(props) {
 
   window.addEventListener('scroll', toggleScrollBtns);
 
+  theme === 'light' ? document.body.style.backgroundColor = '#ffffff' : document.body.style.backgroundColor = '#263238';
+
+  const setTheme = () => {
+    if (theme === 'light') {
+      settheme('dark')
+      localStorage.setItem('theme', 'dark')
+    } else {
+      settheme('light')
+      localStorage.setItem('theme', 'light')
+    }
+  }
+
   return (
     <Router >
       <header className='sticky-top'>
         <LoadingBar color='#f11946' progress={progress} />
-        <NavBar setCountry={setCountry} country={country} />
+        <NavBar setCountry={setCountry} country={country} setTheme={setTheme} theme={theme} />
       </header>
       <Routes>
         <Route exact path="/" element={<News key="home" title="Home" country={country}
-          category={"general"} setProgress={setProgress} />} />
+          category={"general"} setProgress={setProgress} theme={theme} />} />
 
         <Route exact path="/business" element={<News key="business" title="Business" country={country}
-          category={"business"} setProgress={setProgress} />} />
+          category={"business"} setProgress={setProgress} theme={theme} />} />
 
         <Route exact path="/entertainment" element={<News key="entertainment" title="Entertainment" country={country}
-          category={"entertainment"} setProgress={setProgress} />} />
+          category={"entertainment"} setProgress={setProgress} theme={theme} />} />
 
         <Route exact path="/health" element={<News key="health" title="Health" country={country}
-          category={"health"} setProgress={setProgress} />} />
+          category={"health"} setProgress={setProgress} theme={theme} />} />
 
         <Route exact path="/science" element={<News key="science" title="Science" country={country}
-          category={"science"} setProgress={setProgress} />} />
+          category={"science"} setProgress={setProgress} theme={theme} />} />
 
         <Route exact path="/sports" element={<News key="sports" title="Sports" country={country}
-          category={"sports"} setProgress={setProgress} />} />
+          category={"sports"} setProgress={setProgress} theme={theme} />} />
 
         <Route exact path="/technology" element={<News key="technology" title="Technology" country={country}
-          category={"technology"} setProgress={setProgress} />} />
+          category={"technology"} setProgress={setProgress} theme={theme} />} />
 
-        <Route exact path="/about" element={<About key="about" />} />
+        <Route exact path="/about" element={<About key="about" setProgress={setProgress} theme={theme} />} />
       </Routes>
-      <ScrollTopBtn showScrollTopBtn={showScrollTopBtn} />
-      <ScrollBottomBtn showScrollToBottomBtn={showScrollBottomBtn} />
+      <ScrollTopBtn showScrollTopBtn={showScrollTopBtn} theme={theme} />
+      <ScrollBottomBtn showScrollToBottomBtn={showScrollBottomBtn} theme={theme} />
     </Router>
   )
 }
