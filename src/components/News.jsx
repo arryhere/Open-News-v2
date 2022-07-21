@@ -12,12 +12,10 @@ export default class News extends Component {
       page: 1,
       pageSize: 20,
       totalResults: 0,
-      apiKey: this.apiKeyArr[2],
+      apiKey: process.env.REACT_APP_NEWS_AP1_3,
       loadng: true
     }
   }
-
-  apiKeyArr = ['f46ca323c38f4c1fbe8b5f46fe3de358', 'e104cd12f0fd47f7a2ac7d932682002a', '73870c343dec47239955dae69e5ac805']
 
   static defaultProps = {
     country: 'in',
