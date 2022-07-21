@@ -1,85 +1,80 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import NewsItem from './NewsItem'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Spinner from './Spinner'
 
-export default class News extends Component {
-  constructor() {
-    super()
-    this.state = {
-      articles: [],
-      page: 1,
-      pageSize: 20,
-      totalResults: 0,
-      apiKey: process.env.REACT_APP_NEWS_AP1_3,
-      loadng: true
-    }
-  }
+export default function News(props) {
 
-  static defaultProps = {
-    country: 'in',
-    pageSize: 20,
-    category: 'general',
-    title: 'Explore'
-  }
+  const [articles, setarticles] = useState([])
+  const [page, setpage] = useState(1)
+  const [pageSize, setpageSize] = useState(20)
+  const [totalResults, settotalResults] = useState(0)
+  const [loading, setloading] = useState(true)
+  const [apiKey, setapiKey] = useState(process.env.REACT_APP_NEWS_AP1_2)
 
-  static propTypes = {
-    country: PropTypes.string,
-    pageSize: PropTypes.number,
-    category: PropTypes.string,
-    title: PropTypes.string
-  }
+  const updateNews = async () => {
+    props.setProgress(0)
 
-  componentDidMount = async () => {
-    this.props.setProgress(0)
-    this.setState({ loading: true })
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.state.apiKey}&page=${this.state.page}&pageSize=${this.state.pageSize}`
-    this.props.setProgress(30)
-    let response = await fetch(url)
-    this.props.setProgress(60)
-    let data = await response.json()
-    this.props.setProgress(90)
-    this.setState({
-      articles: data.articles,
-      totalResults: data.totalResults,
-      loading: false
-    })
-    this.props.setProgress(100)
-  }
+    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`
+    props.setProgress(30)
 
-  fetchMoreData = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.state.apiKey}&page=${this.state.page + 1}&pageSize=${this.state.pageSize}`
+    const response = await fetch(url)
+    props.setProgress(60)
+
+    const data = await response.json()
+    props.setProgress(90)
+
+    setarticles(data.articles)
+    settotalResults(data.totalResults)
+    setloading(false)
+    props.setProgress(100)
+  }
+  useEffect(() => {
+    updateNews()
+  }, [])
+
+  const fetchMoreData = async () => {
+    let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${apiKey}&page=${page + 1}&pageSize=${pageSize}`
     let response = await fetch(url)
     let data = await response.json()
-    this.setState({
-      articles: this.state.articles.concat(data.articles),
-      totalResults: data.totalResults,
-      page: ++this.state.page
-    })
+    setarticles(articles.concat(data.articles))
+    settotalResults(data.totalResults)
+    setpage(page+1)
+    // console.log(page, articles.length, totalResults);    // clog running first then dom is populating (asynchronous behaviour)
   }
 
-  render() {
-    return (
-      <div className='container my-3 p-3 border border-muted rounded-3'>
-        <div className='d-flex flex-column flex-lg-row justify-content-center align-items-center justify-content-lg-between'>
-          <h1 className='mb-3 fw-bold text-center text-lg-start' id='headline-heading'>{`Top Headlines - ${this.props.title}`}</h1>
-        </div>
-        {this.state.loading && <Spinner />}
-        <InfiniteScroll dataLength={this.state.articles.length}
-          next={this.fetchMoreData}
-          hasMore={this.state.articles.length < this.state.totalResults}
-          loader={this.state.articles.length < this.state.totalResults && <Spinner />}
-        >
-          <div className='d-flex justify-content-evenly align-items-start flex-wrap'>
-            {this.state.articles.map((e) => {
-              return <NewsItem key={e.url} title={e.title} description={e.description !== null ? e.description.slice(0, 99) + "....." : ''}
-                imgUrl={e.urlToImage !== null ? e.urlToImage : 'https://www.rbs.ca/wp-content/themes/rbs/images/news-placeholder.png'}
-                newsUrl={e.url} date={new Date(e.publishedAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short', hour12: false })} source={e.source.name} />
-            })}
-          </div>
-        </InfiniteScroll>
+  return (
+    <div className='container my-3 p-3 border border-muted rounded-3'>
+      <div className='d-flex flex-column flex-lg-row justify-content-center align-items-center justify-content-lg-between'>
+        <h1 className='mb-3 fw-bold text-center text-lg-start' id='headline-heading'>{`Top Headlines - ${props.title}`}</h1>
       </div>
-    )
-  }
+      {loading && <Spinner />}
+      <InfiniteScroll dataLength={articles.length}
+        next={fetchMoreData}
+        hasMore={articles.length < totalResults}
+        loader={articles.length < totalResults && <Spinner />}
+      >
+        <div className='d-flex justify-content-evenly align-items-start flex-wrap'>
+          {articles.map((e) => {
+            return <NewsItem key={e.url} title={e.title} description={e.description !== null ? e.description.slice(0, 99) + "....." : ''}
+              imgUrl={e.urlToImage !== null ? e.urlToImage : 'https://www.rbs.ca/wp-content/themes/rbs/images/news-placeholder.png'}
+              newsUrl={e.url} date={new Date(e.publishedAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short', hour12: false })} source={e.source.name} />
+          })}
+        </div>
+      </InfiniteScroll>
+    </div>
+  )
+}
+
+News.propTypes = {
+  title: PropTypes.string,
+  country: PropTypes.string,
+  category: PropTypes.string
+}
+
+News.defaultProps = {
+  title: 'Explore',
+  country: 'us',
+  category: 'general'
 }

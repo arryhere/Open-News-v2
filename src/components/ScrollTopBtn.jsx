@@ -1,22 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class ScrollTopBtn extends Component {
-  style = {
+export default function ScrollTopBtn(props) {
+
+  const style = {
     bottom: '47px',
     left: '10px'
   }
 
-  scrollTop = () => {
+  const scrollTop = () => {
     document.documentElement.scrollTop = 0;
   }
-  render() {
-    
-    return (
-      this.props.showScrollTopBtn && <div>
-        <button type="button" className='scroll-btn btn btn-sm btn-dark position-fixed' style={this.style} 
-          onClick={this.scrollTop}><i className="bi bi-chevron-up"></i>
-        </button>
-      </div>
-    )
-  }
+
+  return (
+    props.showScrollTopBtn && <div>
+      <button type="button" className='scroll-btn btn btn-sm btn-dark position-fixed' style={style}
+        onClick={scrollTop}><i className="bi bi-chevron-up"></i>
+      </button>
+    </div>
+  )
 }

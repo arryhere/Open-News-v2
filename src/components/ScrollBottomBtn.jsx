@@ -1,22 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class ScrollBottomBtn extends Component {
-  style = {
+export default function ScrollBottomBtn(props) {
+
+  const style = {
     bottom: '10px',
     left: '10px'
   }
 
-  scrollBottom = () => {
+  const scrollBottom = () => {
     document.documentElement.scrollTop = document.documentElement.scrollHeight;
   }
-  render() {
-    
-    return (
-      this.props.showScrollToBottomBtn && <div>
-        <button type="button" className='scroll-btn btn btn-sm btn-dark position-fixed' style={this.style} 
-          onClick={this.scrollBottom}><i className="bi bi-chevron-down"></i>
-        </button>
-      </div>
-    )
-  }
+
+  return (
+    props.showScrollToBottomBtn && <div>
+      <button type="button" className='scroll-btn btn btn-sm btn-dark position-fixed' style={style}
+        onClick={scrollBottom}><i className="bi bi-chevron-down"></i>
+      </button>
+    </div>
+  )
 }
