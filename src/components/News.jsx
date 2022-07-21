@@ -11,7 +11,7 @@ export default function News(props) {
   const [pageSize, setpageSize] = useState(20)
   const [totalResults, settotalResults] = useState(0)
   const [loading, setloading] = useState(true)
-  const [apiKey, setapiKey] = useState(process.env.REACT_APP_NEWS_AP1_2)
+  const [apiKey, setapiKey] = useState(process.env.REACT_APP_NEWS_AP1_1)
 
   const updateNews = async () => {
     props.setProgress(0)
@@ -30,6 +30,7 @@ export default function News(props) {
     setloading(false)
     props.setProgress(100)
   }
+
   useEffect(() => {
     updateNews()
   }, [])
@@ -40,8 +41,8 @@ export default function News(props) {
     let data = await response.json()
     setarticles(articles.concat(data.articles))
     settotalResults(data.totalResults)
-    setpage(page+1)
-    // console.log(page, articles.length, totalResults);    // clog running first then dom is populating (asynchronous behaviour)
+    setpage(page + 1)
+    console.log(page, articles.length, totalResults);    // clog running first then dom is populating (asynchronous behaviour)
   }
 
   return (
@@ -53,7 +54,7 @@ export default function News(props) {
       <InfiniteScroll dataLength={articles.length}
         next={fetchMoreData}
         hasMore={articles.length < totalResults}
-        loader={articles.length < totalResults && <Spinner />}
+        loader={<Spinner />}
       >
         <div className='d-flex justify-content-evenly align-items-start flex-wrap'>
           {articles.map((e) => {

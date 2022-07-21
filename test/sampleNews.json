@@ -1,0 +1,137 @@
+{ 
+  "demoUrl": "https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=f46ca323c38f4c1fbe8b5f46fe3de358&page=1&pageSize=10",
+  "status": "ok",
+  "totalResults": 38,
+  "articles": [
+    {
+      "source": {
+        "id": null,
+        "name": "Ahmedabadmirror.com"
+      },
+      "author": null,
+      "title": "NASA targets late Aug for Artemis 1 moon rocket launch: Report - Ahmedabad Mirror",
+      "description": "NASA&#39;s much awaited Artemis 1 moon rocket will likely be launched in late August, the agency has said.\n\nNASA said it has tentatively selected 3 dates for the launch: August 29; September 2; and September 5.\n\nHowever, &quot;it&#39;s not an agency commitmen…",
+      "url": "https://www.ahmedabadmirror.com/nasa-targets-late-aug-for-artemis-1-moon-rocket-launch-report/81839796.html",
+      "urlToImage": "https://ngs-space1.sgp1.digitaloceanspaces.com/am/uploads/mediaGallery/image/1658405761107.jpg-org",
+      "publishedAt": "2022-07-21T12:23:06Z",
+      "content": "NASA's much awaited Artemis 1 moon rocket will likely be launched in late August, the agency has said.\r\nNASA said it has tentatively selected 3 dates for the launch: August 29; September 2; and Septe… [+1577 chars]"
+    },
+    {
+      "source": {
+        "id": "google-news",
+        "name": "Google News"
+      },
+      "author": null,
+      "title": "Can You Catch COVID-19 Thrice? New Omicron Variant Can Reinfect You Every Month | TheHealthSite.com - TheHealthSite",
+      "description": null,
+      "url": "https://news.google.com/__i/rss/rd/articles/CBMieWh0dHBzOi8vd3d3LnRoZWhlYWx0aHNpdGUuY29tL25ld3MvY2FuLXlvdS1jYXRjaC1jb3ZpZC0xOS10aHJpY2UtbmV3LW9taWNyb24tdmFyaWFudC1jYW4tcmVpbmZlY3QteW91LWV2ZXJ5LW1vbnRoLTg5NTQ5Mi_SAQA?oc=5",
+      "urlToImage": null,
+      "publishedAt": "2022-07-21T12:16:00Z",
+      "content": null
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "NDTV News"
+      },
+      "author": null,
+      "title": "Arvind Kejriwal's Singapore Trip Nixed By Lt Governor. His Next Move - NDTV",
+      "description": "Delhi Chief Minister Arvind Kejriwal, blocked a second time from attending a summit abroad, has declared that he would \"go ahead\" with the visit.",
+      "url": "https://www.ndtv.com/india-news/aaps-next-move-as-lt-governor-says-no-to-arvind-kejriwal-singapore-visit-3180225",
+      "urlToImage": "https://c.ndtvimg.com/2022-07/e075ske8_arvind-kejriwal_625x300_04_July_22.jpg",
+      "publishedAt": "2022-07-21T12:06:00Z",
+      "content": "New Delhi: Delhi Chief Minister Arvind Kejriwal, blocked a second time from attending a summit abroad, has declared that he would \"go ahead\" with the visit. In his response to Lieutenant Governor Vin… [+2297 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "WION"
+      },
+      "author": "WION Web Team",
+      "title": "NASA posts colourful pic of Pluto, wows netizens - WION",
+      "description": "Pluto may be the distant space body in our Solar System but it continues to present surprises every now and then",
+      "url": "https://www.wionews.com/science/nasa-posts-colourful-pic-of-pluto-wows-netizens-499450",
+      "urlToImage": "https://cdn.wionews.com/sites/default/files/styles/story_page/public/2022/07/21/280915-pluto.jpg",
+      "publishedAt": "2022-07-21T11:18:10Z",
+      "content": "Pluto used to be the most distant planet in our Solar System. Used to be because its status as a planet has been revoked. But that doesn't mean Pluto ceases to amaze us. Image of the frozen landscape… [+1157 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "NDTV News"
+      },
+      "author": null,
+      "title": "What Sonia Gandhi Requested For Enforcement Directorate Questioning - NDTV",
+      "description": "Congress President Sonia Gandhi's questioning by the Enforcement Directorate in the National Herald case will be carried out by five officers led by a woman Additional Director, sources say.",
+      "url": "https://www.ndtv.com/india-news/sonia-gandhis-questioning-what-she-requested-and-other-details-3179208",
+      "urlToImage": "https://c.ndtvimg.com/2022-07/d8u2uat8_sonia-gandhi_625x300_21_July_22.jpg",
+      "publishedAt": "2022-07-21T10:45:00Z",
+      "content": "New Delhi: Congress President Sonia Gandhi's questioning in the National Herald case today was led by Kuldeep Singh, an Assistant Director at the Enforcement Directorate, who had also questioned Rahu… [+2442 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "NDTV News"
+      },
+      "author": "Arnab Mitra",
+      "title": "CBSE Result 2022 Live: Class 10, 12 Results Date And Time; Direct Link, How To Download Scorecard - NDTV",
+      "description": "CBSE 10th, 12th Results 2022: CBSE will announce the results of Class 10, 12 exams 2022 by July-end. Check 10th, 12th results on the websites- cbse.gov.in, results.cbse.nic.in",
+      "url": "https://www.ndtv.com/education/cbse-term-2-result-2022-live-cbse-board-class-10th-12th-results-date-time-link-cbseresults-nic-in-latest-updates",
+      "urlToImage": "https://cache.careers360.mobi/media/article_images/2022/7/20/CBSE_result_860.jpg",
+      "publishedAt": "2022-07-21T10:28:50Z",
+      "content": "CBSE 10th, 12th Results 2022 Live: The students who are anxiously waiting for their Central Board of Secondary Education (CBSE) Class 10, 12 exam results 2022, will get their result soon. Though the … [+1295 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "GSMArena.com"
+      },
+      "author": "Yordan",
+      "title": "Google opens Pixel 6a pre-orders in 13 different markets - GSMArena.com",
+      "description": "Countries in North America, Asia, Australia, and Europe are all getting the smartphone.",
+      "url": "https://www.gsmarena.com/google_is_now_offering_the_pixel_6a_for_preorder_in_13_different_markets-news-55143.php",
+      "urlToImage": "https://fdn.gsmarena.com/imgroot/news/22/07/google-pixel-6a-global/-952x498w6/gsmarena_001.jpg",
+      "publishedAt": "2022-07-21T10:25:01Z",
+      "content": "Google is offering the Pixel 6a for pre-order in India, which wasnt part of the original announcement. Now the other major markets where the smartphone was expected to arrive can also pre-order the p… [+769 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Moneycontrol"
+      },
+      "author": "Rakesh Patil",
+      "title": "Closing Bell: Nifty ends above 16,600, Sensex gains 284 pts; capital goods, PSU bank rally - Moneycontrol",
+      "description": "On the sectoral front, except pharma, all indices ended in the green, with PSU Bank, Oil &amp; Gas, Power and Capital Goods indices rose 1-2 percent.",
+      "url": "https://www.moneycontrol.com/news/business/markets/pro-indusind-bank-au-small-finance-bank-gland-pharma-tata-communications-ador-welding-som-distilleries-sbi-jsw-ispat-ceat-agro-tech-havells-india-sonata-software-sasken-technologies-mcnally-bharat-8860541.html",
+      "urlToImage": "https://images.moneycontrol.com/static-mcnews/2022/03/fandosensexniftyderivative-2-770x433.jpg",
+      "publishedAt": "2022-07-21T10:23:31Z",
+      "content": "July 21, 2022 / 03:34 PM IST\r\nMarket Close: Benchmark indices ended higher on the fifth day in a row with Nifty above 16600.\r\nAt close, the Sensex was up 284.42 points or 0.51% at 55,681.95, and the … [+581 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Bollywood Life"
+      },
+      "author": "Shivani Pawaskar",
+      "title": "Nayanthara-Vignesh Shivan's dreamy pre-wedding pictures boast of simplicity; OTT giant shares official announ - Bollywood Life",
+      "description": "Netflix India just confirmed bringing Nayanthara-Vignesh Shivan's wedding documentary on the streaming platform with a pre-wedding photoshoot. Check out the dreamy pictures below:",
+      "url": "https://www.bollywoodlife.com/photos/nayanthara-vignesh-shivans-dreamy-pre-wedding-pictures-boasts-of-simplicity-ott-giant-shares-official-announcement-shah-rukh-khan-jawan-tollywood-updates-entertainment-news-2134792/",
+      "urlToImage": "https://st1.bollywoodlife.com/wp-content/uploads/2022/07/Nayanthara-Vignesh-Shivan-Netflix-pre-wedding1-1-600x315.png",
+      "publishedAt": "2022-07-21T09:54:50Z",
+      "content": "Nayanthara-Vignesh Shivans wedding documentary: Check pre-wedding pictures\r\nNayanthara is not on Instagram, but Vignesh Shivan is. He had dropped some exclusive pictures from their wedding, and it wa… [+364 chars]"
+    },
+    {
+      "source": {
+        "id": null,
+        "name": "Hindustan Times"
+      },
+      "author": "HT Correspondent",
+      "title": "Stabbed in the back by people we trusted, says Aaditya Thackeray on Shinde camp - Hindustan Times",
+      "description": "Shiv Sena chief Uddhav Thackeray lost his position as chief minister after Shinde and his loyalists rebelled against the MVA alliance. | Mumbai news",
+      "url": "https://www.hindustantimes.com/cities/mumbai-news/stabbed-in-the-back-by-people-we-trusted-says-aaditya-thackeray-on-shinde-camp-101658397195536.html",
+      "urlToImage": "https://images.hindustantimes.com/img/2022/07/21/1600x900/494f5c5c-08da-11ed-8045-0e66fdd513ce_1658397427510.jpg",
+      "publishedAt": "2022-07-21T09:53:14Z",
+      "content": "Bhiwandi: Shiv Sena MLA and former minister Aaditya Thackeray on Thursday dared lawmakers who switched sides to resign their assembly seats and win their seats in fresh elections, insisting that the … [+1785 chars]"
+    }
+  ]
+}

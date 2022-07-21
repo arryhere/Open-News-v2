@@ -1,10 +1,6 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import News from './components/News';
 import About from './components/About';
@@ -13,84 +9,71 @@ import ScrollBottomBtn from './components/ScrollBottomBtn';
 import LoadingBar from 'react-top-loading-bar';
 
 
-export default class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      showScrollTopBtn: null,
-      showScrollBottomBtn: null,
-      country: localStorage.getItem('country') === null ? 'us' : localStorage.getItem('country'),
-      progress: 0
-    }
-  }
+export default function App(props) {
 
-  toggleScrollBtns = () => {
+  const [showScrollTopBtn, setshowScrollTopBtn] = useState(null)
+  const [showScrollBottomBtn, setshowScrollBottomBtn] = useState(null)
+  const [country, setcountry] = useState(localStorage.getItem('country') === null ? 'us' : localStorage.getItem('country'))
+  const [progress, setprogress] = useState(0)
+
+  const toggleScrollBtns = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 200) {
-      this.setState({
-        showScrollTopBtn: true,
-        showScrollBottomBtn: true
-      })
+      setshowScrollTopBtn(true)
+      setshowScrollBottomBtn(true)
     }
     else {
-      this.setState({
-        showScrollTopBtn: null,
-        showScrollBottomBtn: null
-      })
+      setshowScrollTopBtn(null)
+      setshowScrollBottomBtn(null)
     }
   }
 
-  setCountry = (country) => {
-    this.setState({ country: country })
+  const setCountry = (country) => {
+    setcountry(country)
     localStorage.setItem('country', country)
     window.location.reload(true)
   }
 
-  setProgress = (progress) => {
-    this.setState({
-      progress: progress
-    })
+  const setProgress = (progress) => {
+    setprogress(progress)
   }
 
+  window.addEventListener('scroll', toggleScrollBtns);
 
-  render() {
-    window.addEventListener('scroll', this.toggleScrollBtns);
+  return (
+    <Router >
+      <header className='sticky-top'>
+        <LoadingBar color='#f11946' progress={progress} />
+        <NavBar setCountry={setCountry} country={country} />
+      </header>
+      <Routes>
+        <Route exact path="/" element={<News key="home" title="Home" country={country}
+          category={"general"} setProgress={setProgress} />} />
 
-    return (
-      <Router >
-        <header className='sticky-top'>
-          <LoadingBar color='#f11946' progress={this.state.progress} />
-          <NavBar setCountry={this.setCountry} country={this.state.country} />
-        </header>
-        <Routes>
-          <Route exact path="/" element={<News key="home" title="Home" country={this.state.country}
-            category={"general"} setProgress={this.setProgress} />} />
+        <Route exact path="/business" element={<News key="business" title="Business" country={country}
+          category={"business"} setProgress={setProgress} />} />
 
-          <Route exact path="/business" element={<News key="business" title="Business" country={this.state.country}
-            category={"business"} setProgress={this.setProgress} />} />
+        <Route exact path="/entertainment" element={<News key="entertainment" title="Entertainment" country={country}
+          category={"entertainment"} setProgress={setProgress} />} />
 
-          <Route exact path="/entertainment" element={<News key="entertainment" title="Entertainment" country={this.state.country}
-            category={"entertainment"} setProgress={this.setProgress} />} />
+        <Route exact path="/health" element={<News key="health" title="Health" country={country}
+          category={"health"} setProgress={setProgress} />} />
 
-          <Route exact path="/health" element={<News key="health" title="Health" country={this.state.country}
-            category={"health"} setProgress={this.setProgress} />} />
+        <Route exact path="/science" element={<News key="science" title="Science" country={country}
+          category={"science"} setProgress={setProgress} />} />
 
-          <Route exact path="/science" element={<News key="science" title="Science" country={this.state.country}
-            category={"science"} setProgress={this.setProgress} />} />
+        <Route exact path="/sports" element={<News key="sports" title="Sports" country={country}
+          category={"sports"} setProgress={setProgress} />} />
 
-          <Route exact path="/sports" element={<News key="sports" title="Sports" country={this.state.country}
-            category={"sports"} setProgress={this.setProgress} />} />
+        <Route exact path="/technology" element={<News key="technology" title="Technology" country={country}
+          category={"technology"} setProgress={setProgress} />} />
 
-          <Route exact path="/technology" element={<News key="technology" title="Technology" country={this.state.country}
-            category={"technology"} setProgress={this.setProgress} />} />
-
-          <Route exact path="/about" element={<About key="about" />} />
-        </Routes>
-        <ScrollTopBtn showScrollTopBtn={this.state.showScrollTopBtn} />
-        <ScrollBottomBtn showScrollToBottomBtn={this.state.showScrollBottomBtn} />
-      </Router>
-    )
-  }
+        <Route exact path="/about" element={<About key="about" />} />
+      </Routes>
+      <ScrollTopBtn showScrollTopBtn={showScrollTopBtn} />
+      <ScrollBottomBtn showScrollToBottomBtn={showScrollBottomBtn} />
+    </Router>
+  )
 }
 
 
