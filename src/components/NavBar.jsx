@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function NavBar(props) {
-
+  const location = useLocation().pathname;
   const getCountry = (e) => {
     props.setCountry(e.target.value)
   }
@@ -25,25 +25,25 @@ export default function NavBar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
+                <Link className={`px-2 nav-link ${location === '/' ? `active-${props.theme}` : ''}`} to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/business">Business</Link>
+                <Link className={`px-2 nav-link ${location === '/business' ? `active-${props.theme}` : ''}`} to="/business">Business</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/entertainment">Entertainment</Link>
+                <Link className={`px-2 nav-link ${location === '/entertainment' ? `active-${props.theme}` : ''}`} to="/entertainment">Entertainment</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/health">Health</Link>
+                <Link className={`px-2 nav-link ${location === '/health' ? `active-${props.theme}` : ''}`} to="/health">Health</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/science">Science</Link>
+                <Link className={`px-2 nav-link ${location === '/science' ? `active-${props.theme}` : ''}`} to="/science">Science</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/sports">Sports</Link>
+                <Link className={`px-2 nav-link ${location === '/sports' ? `active-${props.theme}` : ''}`} to="/sports">Sports</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/technology">Technology</Link>
+                <Link className={`px-2 nav-link ${location === '/technology' ? `active-${props.theme}` : ''}`} to="/technology">Technology</Link>
               </li>
             </ul>
             <div>
